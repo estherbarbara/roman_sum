@@ -1,13 +1,21 @@
 from roman import romanToInt
-
-def validate(self):
-	return 0
+from roman import validate
 
 if __name__ == '__main__':
-    #Reading numbers
-    entry_one = input("Enter first roman number: ")
-    entry_two = input("Enter second roman number: ")
     
+    #Reading numbers
+    valid = False
+    while not valid:
+    	entry_one = input("Enter first roman number: ")
+    	if validate(entry_one):
+    		valid = True
+
+    valid = False
+    while not valid:
+    	entry_two = input("Enter second roman number: ")
+    	if validate(entry_two):
+    		valid = True
+
     first = romanToInt(entry_one)
     second = romanToInt(entry_two)
 

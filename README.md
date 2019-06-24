@@ -2,8 +2,8 @@
 
 Python 3.7 for Windows
 
-To run application
+To run application:
 	py main.py
 	
-To run tests
+To run tests:
 	py -m unittest test.y
