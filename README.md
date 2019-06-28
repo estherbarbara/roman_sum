@@ -6,4 +6,4 @@ To run application:
 	py main.py
 	
 To run tests:
-	py -m unittest test.y
+	py -m unittest test.py

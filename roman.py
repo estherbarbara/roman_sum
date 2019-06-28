@@ -1,18 +1,27 @@
 
+roman_map = {"I": 1,
+        	"V": 5,
+        	"X": 10,
+        	"L": 50,
+        	"C": 100,
+        	"D": 500,
+        	"M": 1000 }
+
 def validate(entry):
 	
+	#letters in roman numbers
 	roman_letters = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
 
 	size = len(entry)
 	i = 0
-	for nn in entry :
+	for nn in entry : #iterate over the given string
 		
 		in_pattern = False
 		for mm in roman_letters :
 			if nn == mm :
-				in_pattern = True
+				in_pattern = True 
 
-		if not in_pattern :
+		if not in_pattern : #if has any letters not in the roman pattern, return false, invalid input
 			print("Entered number not a Roman Number\n")
 			return False
 		else :
@@ -33,16 +42,8 @@ def validate(entry):
 
 	return True
 
-def romanToInt( roman_nb ):
+def roman_to_int( roman_nb ):
 	
-	roman_map = {"I": 1,
-	        	"V": 5,
-	        	"X": 10,
-	        	"L": 50,
-	        	"C": 100,
-	        	"D": 500,
-	        	"M": 1000 }
-
 	value = 0
 	nextValue = 0
 	i = len(roman_nb)-1
@@ -63,3 +64,9 @@ def romanToInt( roman_nb ):
 	#print(str(roman_nb)+"-"+str(value))
 
 	return value
+
+def int_to_roman( roman_nb ):
+
+	int_tests = dict(map(reversed, roman_map.items()))
+	
+	return "not yet implemented"

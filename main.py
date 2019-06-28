@@ -1,5 +1,4 @@
-from roman import romanToInt
-from roman import validate
+from roman import *
 
 if __name__ == '__main__':
     
@@ -16,7 +15,13 @@ if __name__ == '__main__':
     	if validate(entry_two):
     		valid = True
 
-    first = romanToInt(entry_one)
-    second = romanToInt(entry_two)
+    first = roman_to_int(entry_one)
+    second = roman_to_int(entry_two)
 
-    print("Given " + str(entry_one) + " and " + str(entry_two) + ", the result of this sum is: " + str(first + second) )
+    sum = first + second
+    result_sum = int_to_roman(sum)
+
+    print("Given " + 
+    	str(entry_one) + " (" + str(first) + ")" + " and " +
+    	str(entry_two) + " (" + str(second) + ")" + ", the result of this sum is: " + 
+    	str(sum) + " (" + str(result_sum) + ")" )
