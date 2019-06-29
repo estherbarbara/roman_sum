@@ -3,6 +3,7 @@ import unittest
 from roman import *
 
 sums = {
+	'VI': ['V','I'],
 	'X': ['V','V'],
 	'II': ['I','I'],
 	'III': ['I','II'],
@@ -10,7 +11,8 @@ sums = {
 	'IV': ['II','II'],
 	'V': ['II','III'],
 	'V': ['I','IV'],
-	'XL': ['XX','XX']
+	'XL': ['XX','XX'],
+	'L': ['XX','XXX'],
 }
 
 int_to_roman_tests = { 1:"I", 2: "II", 3: "III", 4: "IV", 5:"V", 6:"VI", 7:"VII", 8:"VIII", 9:"IX",
@@ -54,11 +56,7 @@ class TestSum(unittest.TestCase):
     def test_sum(self):
     	for i in sums.keys():
 	        data = sums[i]
-	        first = roman_to_int(data[0])
-	        second = roman_to_int(data[1])
-
-	        sum = first + second
-	        result_sum = int_to_roman(sum)
+	        result_sum = sum_romans(data[0], data[1])
 	        self.assertEqual(result_sum, i)
 
 if __name__ == '__main__':

@@ -15,13 +15,5 @@ if __name__ == '__main__':
     	if validate(entry_two):
     		valid = True
 
-    first = roman_to_int(entry_one)
-    second = roman_to_int(entry_two)
-
-    sum = first + second
-    result_sum = int_to_roman(sum)
-
-    print("Given " + 
-    	str(entry_one) + " (" + str(first) + ")" + " and " +
-    	str(entry_two) + " (" + str(second) + ")" + ", the result of this sum is: " + 
-    	str(sum) + " (" + str(result_sum) + ")" )
+    #Sum
+    result_sum = sum_romans(entry_one, entry_two)

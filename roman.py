@@ -7,6 +7,22 @@ roman_map = {"I": 1,
         	"D": 500,
         	"M": 1000 }
 
+nb_orders = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+
+orders_roman_map = {1000: "M",
+					900: "CM", 
+					500: "D",
+					400: "CD",
+					100: "C",
+					90: "XC",
+					50: "L",
+					40: "XL",
+					10: "X",
+					9: "IX",
+					5: "V",
+					4: "IV",
+					1: "I"}
+
 def validate(entry):
 	
 	#letters in roman numbers
@@ -42,7 +58,7 @@ def validate(entry):
 
 	return True
 
-def roman_to_int( roman_nb ):
+def roman_to_int(roman_nb):
 	
 	value = 0
 	nextValue = 0
@@ -65,8 +81,31 @@ def roman_to_int( roman_nb ):
 
 	return value
 
-def int_to_roman( roman_nb ):
+def int_to_roman(roman_nb):
 
-	int_tests = dict(map(reversed, roman_map.items()))
+	roman = ''
+	i = 0
+	while roman_nb > 0 :
+		if (roman_nb - nb_orders[i]) >= 0 :
+			roman = roman + str(orders_roman_map[nb_orders[i]])
+			roman_nb = roman_nb - nb_orders[i]
+		else :
+			i = i + 1
 	
-	return "not yet implemented"
+	return roman
+
+def sum_romans(roman_one, roman_two):
+
+	first = roman_to_int(roman_one)
+	second = roman_to_int(roman_two)
+
+	sum = first + second
+
+	result_sum = int_to_roman(sum)
+
+	print("Given " + 
+    	str(roman_one) + " (" + str(first) + ")" + " and " +
+    	str(roman_two) + " (" + str(second) + ")" + ", the result of this sum is: " + 
+    	str(sum) + " (" + str(result_sum) + ")" )
+
+	return result_sum
