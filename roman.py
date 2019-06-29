@@ -31,7 +31,6 @@ orders_roman_map = {1000: "M",
 
 def validate(entry):
 
-	unvalid_msg = "Not a Roman Number: "
 	size = len(entry)
 	i = 0
 	for nn in entry : #iterate over the given string
@@ -42,20 +41,17 @@ def validate(entry):
 				in_pattern = True 
 
 		if not in_pattern : #if has any letters not in the roman pattern, return false, invalid input
-			print(unvalid_msg + "Entered number contains character(s) not in the roman number pattern")
 			return False
 		else :
 			#Check for more the 3 repeated I's
 			no_more_than_three = {'I', 'X', 'C'}
 			for mm in no_more_than_three :
 				if i+3 < size and entry[i] == mm and entry[i+1] == mm and entry[i+2] == mm and entry[i+3] == mm :
-					print(unvalid_msg + "Entered number has more than 3 repeated '" + mm)
 					return False
 
 			no_more_than_one = {'V', 'L', 'D'}
 			for mm in no_more_than_one :
 				if i+1 < size and entry[i] == mm and entry[i+1] == mm :
-					print(unvalid_msg + "Entered number has more than 1 '" + mm)
 					return False
 
 		i = i + 1;
@@ -107,10 +103,5 @@ def sum_romans(roman_one, roman_two):
 	sum = first + second
 
 	result_sum = int_to_roman(sum)
-
-	print("Given " + 
-    	str(roman_one) + " (" + str(first) + ")" + " and " +
-    	str(roman_two) + " (" + str(second) + ")" + ", the result of this sum is: " + 
-    	str(sum) + " (" + str(result_sum) + ")" )
 
 	return result_sum

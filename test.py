@@ -40,7 +40,6 @@ class TestSum(unittest.TestCase):
 
 	#test valid inputs
     def test_valid_roman_number(self):
-    	print("\n----------------------- testing valid numbers ------------------------\n")
     	for i in int_to_roman_tests.keys():
 	        data = int_to_roman_tests[i]
 	        result = validate(data)
@@ -48,13 +47,11 @@ class TestSum(unittest.TestCase):
 
 	#test invalid inputs
     def test_invalid_roman_number(self):
-    	print("\n----------------- running test: invalid numbers ----------------------\n")
     	for i in not_roman_tests:
 	        result = validate(i)
 	        self.assertFalse(result)
 
     def test_translation_roman_to_int(self):
-    	print("\n--------- running test: valid translation roman to decimal -----------\n")
     	for i in int_to_roman_tests.keys():
 	        data = int_to_roman_tests[i]
 	        result = roman_to_int(data)
@@ -62,7 +59,6 @@ class TestSum(unittest.TestCase):
 
 	#revert the dict to translate in the oposite direction (int to roman) as previous test (roman to int)
     def test_translation_int_to_roman(self):
-    	print("\n---------- running test: valid translation decimal to roman ----------\n")
     	int_tests = dict(map(reversed, int_to_roman_tests.items()))
     	for i in int_tests.keys():
 	        data = int_tests[i]
@@ -71,7 +67,6 @@ class TestSum(unittest.TestCase):
 
 	#consider dict values converted to decimal
     def test_sum_1(self):
-    	print("\n----------------- running test: sum numbers one ---------------------\n")
     	for i in sums.keys():
 	        data = sums[i]
 	        result_sum = sum_romans(data[0], data[1])
@@ -79,7 +74,6 @@ class TestSum(unittest.TestCase):
 
 	#consider sum of the given values converted to decimal
     def test_sum_2(self):
-    	print("\n----------------- running test: sum numbers two ---------------------\n")
     	for i in sums.keys():
 	        data = sums[i]
 	        result_sum = sum_romans(data[0], data[1])
