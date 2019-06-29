@@ -85,18 +85,18 @@ def roman_to_int(roman_nb):
 
 	return value
 
-def int_to_roman(roman_nb):
+def int_to_roman(decimal_nb):
 
-	roman = ''
+	roman_nb = ''
 	i = 0
-	while roman_nb > 0 :
-		if (roman_nb - nb_orders[i]) >= 0 :
-			roman = roman + str(orders_roman_map[nb_orders[i]])
-			roman_nb = roman_nb - nb_orders[i]
+	while decimal_nb > 0 :
+		if (decimal_nb - nb_orders[i]) >= 0 :
+			decimal_nb = decimal_nb - nb_orders[i] #subtract if possible to do so
+			roman_nb = roman_nb + str(orders_roman_map[nb_orders[i]]) #concat subtracted order number to form roman number
 		else :
 			i = i + 1
 
-	return roman
+	return roman_nb
 
 #receives two roman numbers, converts them to decimals, sum them, and gives the roman equivalent
 def sum_romans(roman_one, roman_two):
