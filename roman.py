@@ -1,4 +1,8 @@
 
+#letters in roman numbers
+roman_letters = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
+
+#roman values and decimal corresponding
 roman_map = {"I": 1,
         	"V": 5,
         	"X": 10,
@@ -7,8 +11,10 @@ roman_map = {"I": 1,
         	"D": 500,
         	"M": 1000 }
 
+#decimal big orders
 nb_orders = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
 
+#decimal big orders and roman corresponding
 orders_roman_map = {1000: "M",
 					900: "CM", 
 					500: "D",
@@ -24,10 +30,8 @@ orders_roman_map = {1000: "M",
 					1: "I"}
 
 def validate(entry):
-	
-	#letters in roman numbers
-	roman_letters = {'I', 'V', 'X', 'L', 'C', 'D', 'M'};
 
+	unvalid_msg = "Not a Roman Number: "
 	size = len(entry)
 	i = 0
 	for nn in entry : #iterate over the given string
@@ -38,20 +42,20 @@ def validate(entry):
 				in_pattern = True 
 
 		if not in_pattern : #if has any letters not in the roman pattern, return false, invalid input
-			print("Entered number not a Roman Number\n")
+			print(unvalid_msg + "Entered number contains character(s) not in the roman number pattern")
 			return False
 		else :
 			#Check for more the 3 repeated I's
-			noMoreThanThree = {'I', 'X', 'C'}
-			for mm in noMoreThanThree :
+			no_more_than_three = {'I', 'X', 'C'}
+			for mm in no_more_than_three :
 				if i+3 < size and entry[i] == mm and entry[i+1] == mm and entry[i+2] == mm and entry[i+3] == mm :
-					print("Entered number has more than 3 repeated '" + mm + "' \n")
+					print(unvalid_msg + "Entered number has more than 3 repeated '" + mm)
 					return False
 
-			noMoreThanOne = {'V', 'L', 'D'}
-			for mm in noMoreThanOne :
+			no_more_than_one = {'V', 'L', 'D'}
+			for mm in no_more_than_one :
 				if i+1 < size and entry[i] == mm and entry[i+1] == mm :
-					print("Entered number has more than 1 '" + mm + "' \n")
+					print(unvalid_msg + "Entered number has more than 1 '" + mm)
 					return False
 
 		i = i + 1;
@@ -62,7 +66,7 @@ def roman_to_int(roman_nb):
 	
 	value = 0
 	nextValue = 0
-	i = len(roman_nb)-1
+	i = len(roman_nb)-1 #reads from right to left
 	
 	while i >= 0 :
 
@@ -77,7 +81,7 @@ def roman_to_int(roman_nb):
 
 		i = i-1
 
-	#print(str(roman_nb)+"-"+str(value))
+	#print(str(roman_nb)+": "+str(value))
 
 	return value
 
@@ -91,9 +95,10 @@ def int_to_roman(roman_nb):
 			roman_nb = roman_nb - nb_orders[i]
 		else :
 			i = i + 1
-	
+
 	return roman
 
+#receives two roman numbers, converts them to decimals, sum them, and gives the roman equivalent
 def sum_romans(roman_one, roman_two):
 
 	first = roman_to_int(roman_one)
